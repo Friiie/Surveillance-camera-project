@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>My toy website</title>
+<meta charset="utf-8">
+<script>
+    function checkForm() {
+        var username = document.forms["register_form"]["pseudo"].value;
+        var pass = document.forms["register_form"]["password"].value;
+        if (username == null || username == "", pass == null || pass =="") {
+            alert("Pseudo and password are mandatory to create your account!");
+            return false;
+        }   
+        else {
+            alert("Correct");
+            return true;
+        }   
+    }
+</script>
+</head> 
+<body>
+    <form action="insert_user.php" method="post" name="register_form" onsubmit="return checkForm();">
+        <h3>Creating new user</h3>
+        <label>Pseudo</label><br>
+        <input type="text" name="pseudo"><br><br>
+        <label >password</label><br>
+        <input type="text" name="password"><br><br>
+        <label>Frist Name</label><br>
+        <input type="text" name="firstname"><br><br>
+        <label>Last name</label><br>
+        <input type="text" name="lastname"><br><br>
+        <input type="submit" value="Create">
+    </form>
+</body>

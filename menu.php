@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>My toy website</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet"
+        href="https://www.w3schools.com/w3css/4/w3.css"/>
+        <link rel = "stylesheet"
+        type = "text/css"
+        href = "mystyle.css" />
+        <script>
+            function displayConverter(){
+                var currentValue = document.getElementById('popup').style.display; 
+
+                if(currentValue === "block"){
+                    document.getElementById('popup').style.display = "none";
+                    document.getElementById('contents').style.width = '80%';
+                }
+                
+                else{
+                    document.getElementById('popup').style.display = 'block';
+                    document.getElementById('contents').style.width = '60%';
+                }
+            }
+            function displayLoginScreen(){
+                var currentValue = document.getElementById('loginscreen').style.display;
+                if(currentValue = "none"){
+                    document.getElementById('loginscreen').style.display = "initial";
+                }
+            }
+            function convert(){
+                var value = document.getElementById('euprice').value;
+                var rate = document.getElementById('rate').value;
+                var currentLabel = document.getElementById('currencyLabel').innerHTML;
+                if (currentLabel === "Price in EUR"){
+                    document.getElementById('displaySEK').innerHTML = value * rate;
+                }
+                else{
+                    document.getElementById('displaySEK').innerHTML = value / rate;
+                }
+            }
+            function swap(){
+                var currentLabel = document.getElementById('currencyLabel').value;
+                if (currentLabel === "0"){
+                    document.getElementById('currencyLabel').value = "1";
+                    document.getElementById('currencyLabel').innerHTML = "Price in SEK";
+                    document.getElementById('sekprice').innerHTML = "Result in EUR"
+
+                }
+                else{
+                    document.getElementById('currencyLabel').value = "0";
+                    document.getElementById('currencyLabel').innerHTML = "Price in EUR";
+                    document.getElementById('sekprice').innerHTML = "Result in SEK"
+                }
+            }
+        </script>
+    </head>
+    
+   <body>
+       <div class="blue_gray_title">
+           <h2>My Website</h2>
+       </div>
+       <div class="central_part">
+        <div class="left_menu">
+       
+        <ul>
+        <li><a href="page1.html">page 1</a></li>
+        <li><a href="page2.html">page 2</a></li>
+        <li><a href="page3.html">page 3</a></li>
+        </ul>
+        <button type="button" onclick='displayConverter();'>Open Converter</button>
+        <br>
+        <button type="button" onclick="displayLoginScreen();">Login</button>
+        </div>
+       
+        <div id="contents">
+        <h2>This is the latest news:</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed maximus ex neque, vitae laoreet lacus lacinia et. 
+            Fusce pellentesque semper enim eu maximus. Maecenas convallis, justo vel gravida aliquet, nisi nunc dignissim sem, 
+            ac efficitur augue nibh in libero. Curabitur id turpis sed risus egestas tincidunt at ac justo. 
+            Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. 
+            Duis tempor ante in facilisis mollis. Duis nec augue at justo faucibus rutrum non a tortor. Cras quis ex urna. 
+            Integer feugiat auctor tincidunt. Nullam eget massa nec eros blandit mollis et at turpis. 
+            Mauris quis sem commodo, tincidunt justo in, egestas est. 
+            Phasellus nisl dolor, commodo quis est lacinia, rhoncus pellentesque est.</p>
+        </div>
+
+        <div id="loginscreen" class="w3-animate-zoom">
+            <form action="login.php" method="post">
+                <h3>Login</h3>
+                <label>Pseudo</label><br>
+                <input type="text" name="pseudo"><br>
+                <label>Password</label><br>
+                <input type="text" name="password"><br><br>
+                <input type="submit" value="Login"><br><br>
+                <a href="create_user.html">Not registered yet?</a>
+            </form>
+        </div>
+
+        <div id="popup" class="w3-animate-left">
+            <h3>Currency Converter</h3>
+            <label id="currencyLabel" value = "0">Price in EUR</label>
+            <input type="text" id="euprice" value="100">
+            <br>
+            <label id="rateLabel">Rate</label>
+            <br>
+            <input type="text" id="rate" value="10.9">
+            <br>
+            <button style="margin-top: 30px;" type="button" onclick="swap();">Swap conversion</button>
+            <div id="sekprice" style="margin-top: 30px;color: green;">result in SEK    
+            <p id="displaySEK" style="margin: 30px; color: green;"> Value</p>
+            </div>
+            <button style="margin-top: 30px;" type="button" onclick="convert();">Convert</button>
+        </div>
+       </div>
+       <div class="footer">
+            <p>Copyright Webbsystem Course, 2020</p>
+        </div>
+    
+
+   </body> 
+</html>
