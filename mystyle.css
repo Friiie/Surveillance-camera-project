@@ -86,7 +86,7 @@ li{
 
 
 #loginscreen{
-    display: none;
+    display: initial;
     position: absolute;
     top:200px;
     left:35%;
