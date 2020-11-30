@@ -18,7 +18,9 @@ li{
     text-align: center;
     font-size: 40px;
 }
-
+.systemstatuses{
+    color: red;
+}
 .left_menu{
     background-color: rgb(152, 152, 194);
     color: white;
@@ -32,9 +34,26 @@ li{
     background-color: rgb(255, 255, 255);
     color: rgb(0, 0, 0);
     height: 400px;
-    width: 80%;
+    width: 50%;
     padding: 20px;
-    float: right;
+    float: left;
+}
+#status{
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    height: 400px;
+    width: 15%;
+    padding: 10px;
+    float: left;
+}
+
+#adminbox{
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    height: 400px;
+    width: 20%;
+    padding: 40px;
+    float: left;
 }
 
 #popup {

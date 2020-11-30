@@ -7,8 +7,9 @@
     function checkForm() {
         var username = document.forms["register_form"]["pseudo"].value;
         var pass = document.forms["register_form"]["password"].value;
-        if (username == null || username == "", pass == null || pass =="") {
-            alert("Pseudo and password are mandatory to create your account!");
+        var Email = document.forms["register_form"]["Email"].value;
+        if (username == null || username == "", pass == null || pass =="", Email == null || Email=="") {
+            alert("Pseudo, password and Email are mandatory to create your account!");
             return false;
         }   
         else {
@@ -29,6 +30,8 @@
         <input type="text" name="firstname"><br><br>
         <label>Last name</label><br>
         <input type="text" name="lastname"><br><br>
+        <label>Email</label><br>
+        <input type="text" name="Email"><br><br>
         <input type="submit" value="Create">
     </form>
 </body>

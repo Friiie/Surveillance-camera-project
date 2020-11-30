@@ -1,3 +1,12 @@
+<?php
+    session_start();
+    if(!empty($_SESSION['Username'])){
+        header("Location: page1.php");
+    } else{
+        echo "you are not logged in";
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -25,10 +34,10 @@
         <div id="loginscreen" class="w3-animate-zoom">
             <form action="login.php" method="post">
                 <h3>Login</h3>
-                <label>Pseudo</label><br>
-                <input type="text" name="pseudo"><br>
+                <label>Username</label><br>
+                <input type="text" name="Username"><br>
                 <label>Password</label><br>
-                <input type="text" name="password"><br><br>
+                <input type="text" name="Password"><br><br>
                 <input type="submit" value="Login"><br><br>
                 <a href="create_user.html">Not registered yet?</a>
             </form>

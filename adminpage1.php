@@ -5,10 +5,7 @@
     } else{
         header("Location: index.php");
     }
-
-   
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -87,7 +84,23 @@
                     get_raspi_data(first_value, second_value, camera_data);
                 });
              }
+             
+             function getUsers(){
+                $.getJSON('get_all_users.php', function(data){
+                    $("#responsecontainer").html(data.message);
+                    var names_length = data.length;
+                    for (var i = 0; i < names_length; i++) {
+                        show_name_in_list(data[i]);
+                    }
+                });
+             }
 
+             function show_name_in_list(name){
+                 var list = document.getElementById('userlist')
+                var entry = document.createElement('li');
+                entry.appendChild(document.createTextNode(name));
+                list.appendChild(entry);
+             }
 
         </script>
     </head>
@@ -98,7 +111,7 @@
        <div class="central_part">
         <div id="contents">
         <h2>Camera feed:</h2>
-        <img src="stream.php">
+        <img src="stream.php" height="500" width="670" ></img>
         </div>
         <div id="status">
             <br>
@@ -111,5 +124,15 @@
                 <h3><label id="camerastatus"> Camera sensor OFFLINE </label></h3> 
                 <h3><label id="motionsensor"> Motion sensor IDLE </label></h3>
             </div>
+        </div>
+        <div id="adminbox">
+            <h2> List of users </h2>
+            <button type="button" onclick="getUsers();"> See all users </button>
+             <ul id="userlist">
+
+
+             </ul>
+        
+        </div>
    </body> 
-</html>
+</html> 
